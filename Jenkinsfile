@@ -1,12 +1,11 @@
-node {
-    checkout scm
-    stage("Build"){
-        echo "Building..."
-    }
-    stage("Test"){
-        echo "Testing..."
-    }
-    stage("Deploy"){
-        echo "Deploying..."
+pipeline {
+    agent { dockerfile true }
+    stages {
+        stage('ExempleDocker') {
+            steps {
+                sh 'echo myCustomEnvVar = $myCustomEnvVar'
+                
+            }
+        }
     }
 }
